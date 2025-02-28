@@ -7,13 +7,33 @@ html, body {
     justify-content: space-between;
 }
 
+textarea, h1, button {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.text-section {
+    height: 90%;
+    width: 30%;
+    margin: 0;
+}
+
+.text-header {
+    height: 10%;
+    width: 100%;
+    margin: 0;
+    font-size: 5vh;
+    color: aliceblue;
+}
+
 textarea {
-    height: calc(90% - 60px);
-    width: calc(30% - 60px);
+    box-sizing: border-box;
+    height: 90%;
+    width: 100%;
     background-color: transparent;
     font-size: 5vh;
     color: aliceblue;
     padding: 30px;
+    margin: 0;
 }
 
 .optionsGroup {
@@ -49,5 +69,4 @@ button {
     font-size: 5vh;
     background-color: #365488;
     color: aliceblue;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
