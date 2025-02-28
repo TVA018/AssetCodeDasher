@@ -1,0 +1,53 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    background-color: #222b3a;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+textarea {
+    height: calc(90% - 60px);
+    width: calc(30% - 60px);
+    background-color: transparent;
+    font-size: 5vh;
+    color: aliceblue;
+    padding: 30px;
+}
+
+.optionsGroup {
+    width: 30%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+@keyframes fade-out {
+    from {color: rgb(96, 194, 96);}
+    to {color: transparent;}
+}
+
+.status {
+    background-color: transparent;
+    text-align: center;
+    height: 10%;
+    font-size: calc(100vh * 0.8 * 0.05);
+    color: rgb(96, 194, 96);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.fading-out {
+    animation-name: fade-out;
+    animation-duration: 2s;
+}
+
+button {
+    width: 100%;
+    height: 20%;
+    font-size: 5vh;
+    background-color: #365488;
+    color: aliceblue;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
