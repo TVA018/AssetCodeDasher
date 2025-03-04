@@ -21,7 +21,7 @@ textarea, h1, button {
     height: 10%;
     width: 100%;
     margin: 0;
-    font-size: 5vh;
+    font-size: min(5vh, 5vw);
     color: aliceblue;
 }
 
@@ -30,7 +30,7 @@ textarea {
     height: 90%;
     width: 100%;
     background-color: transparent;
-    font-size: 5vh;
+    font-size: min(5vh, 5vw);
     color: aliceblue;
     padding: 30px;
     margin: 0;
