@@ -1,5 +1,5 @@
 # Asset Code Dasher
-Adds a dash to a list containing 230-style asset codes.
+Takes a list and reformats any 230-style asset code contained (such as 230-001101) to their proper format.
 
 ## Link to app webpage (no downloads needed): [https://tva018.github.io/AssetCodeDasher/](https://tva018.github.io/AssetCodeDasher/)
 
