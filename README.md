@@ -1,10 +1,10 @@
 # Asset Code Dasher
 Adds a dash to a list containing 230-style asset codes.
 
-## Link to app website (no downloads needed): [https://tva018.github.io/AssetCodeDasher/](https://tva018.github.io/AssetCodeDasher/)
+## Link to app webpage (no downloads needed): [https://tva018.github.io/AssetCodeDasher/](https://tva018.github.io/AssetCodeDasher/)
 
 ## How to use
-1. Copy the column of asset codes. Do **NOT** select the header cell.</br>
+1. Copy the column of asset codes.</br>
 ![Copy asset codes](instructionImages/copyInitialCells.png)
 2. Paste the asset codes into the INPUT CODES text box</br>
 ![Paste asset codes into INPUT CODES](instructionImages/pasteIntoInput.png)
