@@ -78,7 +78,7 @@ class LineList {
         this.container = container;
         this.lines = [];
         this.readOnly = readOnly;
-        this.insertLine("", null, readOnly);
+        this.insertLine("");
     }
 
     insertLine(text, position){

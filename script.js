@@ -27,10 +27,9 @@ function addDashes(){
     statusMsg.classList.add("fading-out");
     setTimeout(() => statusMsg.classList.remove("fading-out"), 2000);
 
-    outputArea.value = outputs.join("\n");
-    outputArea.select();
-    outputArea.setSelectionRange(0, 99999); // For mobile devices
-    navigator.clipboard.writeText(outputArea.value);
+    outputLines.clear();
+    
+    navigator.clipboard.writeText(outputs.join("\n"));
 }
 
 button.onclick = addDashes;
