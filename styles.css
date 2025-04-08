@@ -47,7 +47,7 @@ input[type="checkbox"] {
     height: 10%;
     width: 100%;
     margin: 0;
-    font-size: min(5vh, 5vw);
+    font-size: min(5vh, 3vw);
     color: aliceblue;
 }
 
@@ -73,19 +73,25 @@ div.text-container > div > h1 {
     background: transparent; 
     height: 30px;
     line-height: 30px;
-    width: 10%;
+    width: auto;
     padding: 0 10px;
     margin: 0 0 0 0;
     font-size: large;
+    text-align: right;
 }
 
-div.text-container > div > input[type="text"] {
-    height: 30px;
+div.text-container > textarea {
+    color: black;
     line-height: 30px;
     border-radius: 0; 
     background-color: transparent; 
     border-width: 0; 
-    width: 100%;
+    height: auto; 
+    min-height: 80vh;
+    min-width: 100%;
+    max-width: 100%;
+    height: auto;
+    overflow: auto;
     box-sizing: border-box;
     border-width: 1px;
     padding: 0 0 0 5px;
@@ -95,7 +101,6 @@ div.text-container > div > input[type="text"] {
 
 textarea {
     box-sizing: border-box;
-    height: 90%;
     width: 100%;
     background-color: transparent;
     font-size: min(5vh, 5vw);
