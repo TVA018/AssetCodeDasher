@@ -23,9 +23,7 @@ class LineList {
         // this.container.appendChild(this.textContainer);
 
         this.textArea.oninput = (event) => {
-            const numLines = event.target.value.split("\n").length;
-            console.log(numLines);
-            this.reRenderLineNumbers(numLines);
+            this.reRenderLineNumbers();
         }
 
         this.lineNumbers = [];
@@ -33,7 +31,9 @@ class LineList {
         this.appendLineNumber("");
     }
 
-    reRenderLineNumbers(numLines){
+    reRenderLineNumbers(){
+        const numLines = this.textArea.value.split("\n").length;
+
         // Remove extra lines
         while(this.lineNumbers.length > numLines){
             this.lineNumbersContainer.removeChild(this.lineNumbers[numLines].HTML);
@@ -57,12 +57,13 @@ class LineList {
         return lineNumber;
     }
 
-    clear(){
-        this.lines[0].HTML.text.value = "";
+    setText(text){
+        this.textArea.value = text;
+        this.reRenderLineNumbers();
+    }
 
-        while(this.lines.length > 1){
-            this.removeLine(1);
-        }
+    clear(){
+        this.setText("");
     }
 
     toList(){

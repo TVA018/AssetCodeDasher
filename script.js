@@ -12,7 +12,7 @@ const outputLines = new LineList(document.getElementById("output-lines-list"), t
 statusMsg.style.color = "transparent";
 
 function addDashes(){
-    const inputs = inputLines.toList();
+    const inputs = inputLines.textArea.value.split("\n");
     const outputs = inputs.map((inputVal) => {
         if(inputVal.search(prefixCode) == -1){
             //not a 230-style asset code
@@ -29,9 +29,7 @@ function addDashes(){
     setTimeout(() => statusMsg.classList.remove("fading-out"), 2000);
 
     outputLines.clear();
-    for(const code of outputs){
-        outputLines.insertLine(code);
-    }
+    outputLines.setText(outputs.join("\n"));
 
     outputLines.removeLine(0);
     
