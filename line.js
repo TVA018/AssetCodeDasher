@@ -119,7 +119,11 @@ class LineList {
         }
     }
 
+    toList(){
+        return this.lines.map((line) => line.HTML.text.value);
+    }
+
     toString(){
-        return this.lines.map((line) => line.HTML.text.value).join("\n");
+        return this.toList().join("\n");
     }
 }
