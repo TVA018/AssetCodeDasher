@@ -87,7 +87,7 @@ div.text-container > div > input[type="text"] {
     border-width: 0; 
     width: 100%;
     box-sizing: border-box;
-    border-width: 1gipx;
+    border-width: 1px;
     padding: 0 0 0 5px;
     margin: 0;
     font-size: large;
