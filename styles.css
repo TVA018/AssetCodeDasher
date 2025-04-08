@@ -70,7 +70,6 @@ div.text-container {
 }
 
 div.text-container > div > h1 {
-    background: transparent; 
     height: 30px;
     line-height: 30px;
     width: auto;
@@ -78,6 +77,10 @@ div.text-container > div > h1 {
     margin: 0 0 0 0;
     font-size: large;
     text-align: right;
+}
+
+h1.error-line {
+    background-color: #ee5555;
 }
 
 div.text-container > textarea {
