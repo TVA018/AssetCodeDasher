@@ -47,7 +47,7 @@ input[type="checkbox"] {
     height: 10%;
     width: 100%;
     margin: 0;
-    font-size: min(5vh, 5vw);
+    font-size: min(5vh, 3vw);
     color: aliceblue;
 }
 

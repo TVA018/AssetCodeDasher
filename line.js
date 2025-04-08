@@ -75,7 +75,20 @@ class Line {
 
 class LineList {
     constructor(container, readOnly){
+        // creating elements
         this.container = container;
+        this.lineNumbersContainer = document.createElement("div");
+        this.lineNumbersContainer.classList.add("line-numbers-container");
+        this.textContainer = document.createElement("div");
+        this.textContainer.classList.add("line-text-container");
+        this.textArea = document.createElement("textarea");
+        this.textArea.readOnly = readOnly;
+
+        // appending elements
+        this.textContainer.appendChild(this.textArea);
+        this.container.appendChild(this.lineNumbersContainer);
+        this.container.appendChild(this.textContainer);
+
         this.lines = [];
         this.readOnly = readOnly;
         this.insertLine("");
