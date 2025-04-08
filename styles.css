@@ -7,8 +7,18 @@ html, body {
     justify-content: space-between;
 }
 
-textarea, h1, button {
+textarea, h1, button, label {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+label {
+    font-size: large;
+    color: aliceblue;
+}
+
+input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
 }
 
 .text-section {
@@ -23,6 +33,49 @@ textarea, h1, button {
     margin: 0;
     font-size: min(5vh, 5vw);
     color: aliceblue;
+}
+
+div.text-container {
+    display: inline-grid;
+    grid-template-columns: min-content auto;
+    overflow-y: scroll;
+    max-height: 80vh;
+    width: 100%;
+    background-color: aliceblue;
+    scrollbar-width: thin;
+}
+
+.line-numbers-container, .input-text-container {
+    display: flex;
+    flex-flow: column;
+}
+
+.line-numbers-container {
+    background-color: grey;
+}
+
+div.text-container > div > h1 {
+    background: transparent; 
+    height: 30px;
+    line-height: 30px;
+    width: 10%;
+    padding: 0 10px;
+    margin: 0 0 0 0;
+    font-size: large;
+}
+
+div.text-container > div > input[type="text"] {
+    height: 30px;
+    line-height: 30px;
+    border-radius: 0; 
+    background-color: transparent; 
+    border-width: 0; 
+    width: 100%;
+    box-sizing: border-box;
+    border-width: 2px;
+    padding: 0 0 0 5px;
+    margin: 0;
+    font-size: large;
 }
 
 textarea {
@@ -42,6 +95,8 @@ textarea {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+    gap: 10px;
 }
 
 @keyframes fade-out {

@@ -7,11 +7,16 @@
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="styles.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   </head>
   <body>
     <div class="text-section">
       <h1 class="text-header">INPUT CODES</h1>
-      <textarea id="input"></textarea>
+      <div id="lines-container" class="text-container">
+        <div class="line-numbers-container"></div>
+        <div class="input-text-container"></div>
+      </div>
+      <!-- <textarea id="input"></textarea> -->
     </div>
 
     <div class="optionsGroup">
@@ -19,6 +24,10 @@
         ADD DASHES<br />
         ➡
       </button>
+      <div style="display: flex; flex-flow: row; align-items: center; gap: 5px;">
+        <input id="error-catch-check" type="checkbox" />
+        <label for="error-catch-check">Catch Errors?</label>
+      </div>
       <div id="status" class="status">RESULT COPIED!</div>
     </div>
 
@@ -27,6 +36,7 @@
       <textarea id="output" readonly></textarea>
     </div>
 
-    <script src="script.js" async defer></script>
+    <script src="line.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>

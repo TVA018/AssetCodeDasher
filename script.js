@@ -5,6 +5,7 @@ const statusMsg = document.getElementById("status");
 
 const prefixCode = /\b230/;
 const removeWhiteSpace = /[\s-]/;
+const inputLines = new LineList(document.getElementById("lines-container"));
 
 statusMsg.style.color = "transparent";
 
