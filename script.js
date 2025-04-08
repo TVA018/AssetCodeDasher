@@ -1,6 +1,7 @@
 const inputArea = document.getElementById("input");
 const outputArea = document.getElementById("output");
-const button = document.getElementById("dash-button");
+const formatButton = document.getElementById("format-button");
+const clearButton = document.getElementById("clear-button");
 const statusMsg = document.getElementById("status");
 
 const prefixCode = /\b230/;
@@ -37,4 +38,5 @@ function addDashes(){
     navigator.clipboard.writeText(outputs.join("\n"));
 }
 
-button.onclick = addDashes;
+formatButton.onclick = addDashes;
+clearButton.onclick = () => inputLines.clear();

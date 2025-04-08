@@ -83,7 +83,6 @@ class LineList {
 
     insertLine(text, position){
         position = position || this.lines.length;
-        console.log(position);
         const line = new Line(this, position + 1, text, this.readOnly);
 
         for(let lineToCheck = position; lineToCheck < this.lines.length; lineToCheck++){
@@ -114,7 +113,7 @@ class LineList {
     clear(){
         this.lines[0].HTML.text.value = "";
 
-        for(let i = 1; i < this.lines.length; i++){
+        while(this.lines.length > 1){
             this.removeLine(1);
         }
     }
