@@ -1,5 +1,5 @@
 class Line {
-    constructor(lineList, lineNum, text){
+    constructor(lineList, lineNum, text, readOnly){
         this.lineNum = lineNum;
         this.text = text;
         this.HTML = {
@@ -11,6 +11,7 @@ class Line {
         this.HTML.text.type = "text";
         this.HTML.text.value = this.text;
         this.HTML.text.style.cursor = "text";
+        this.HTML.text.readOnly = readOnly;
 
         this.HTML.lineNumber.style.gridRow = this.lineNum;
         this.HTML.text.style.gridRow = this.lineNum;
@@ -49,7 +50,7 @@ class Line {
 
     appendTo(parentElement){
         const linesContainer = parentElement.querySelector(".line-numbers-container");
-        const textContainer = parentElement.querySelector(".input-text-container");
+        const textContainer = parentElement.querySelector(".line-text-container");
 
         linesContainer.appendChild(this.HTML.lineNumber);
         textContainer.appendChild(this.HTML.text);
@@ -73,15 +74,17 @@ class Line {
 }
 
 class LineList {
-    constructor(container){
+    constructor(container, readOnly){
         this.container = container;
         this.lines = [];
-        this.insertLine("");
+        this.readOnly = readOnly;
+        this.insertLine("", null, readOnly);
     }
 
     insertLine(text, position){
         position = position || this.lines.length;
-        const line = new Line(this, position + 1, text);
+        console.log(position);
+        const line = new Line(this, position + 1, text, this.readOnly);
 
         for(let lineToCheck = position; lineToCheck < this.lines.length; lineToCheck++){
             const targetLine = this.lines[lineToCheck];
@@ -97,7 +100,7 @@ class LineList {
 
     removeLine(position){
         this.container.querySelector(".line-numbers-container").removeChild(this.lines[position].HTML.lineNumber);
-        this.container.querySelector(".input-text-container").removeChild(this.lines[position].HTML.text);
+        this.container.querySelector(".line-text-container").removeChild(this.lines[position].HTML.text);
 
         for(let lineToCheck = position + 1; lineToCheck < this.lines.length; lineToCheck++){
             const targetLine = this.lines[lineToCheck];
@@ -106,6 +109,14 @@ class LineList {
 
         this.lines.splice(position, 1);
         this.lines[position - 1].HTML.text.focus();
+    }
+
+    clear(){
+        this.lines[0].HTML.text.value = "";
+
+        for(let i = 1; i < this.lines.length; i++){
+            this.removeLine(1);
+        }
     }
 
     toString(){

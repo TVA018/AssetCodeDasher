@@ -44,7 +44,7 @@ div.text-container {
     background-color: aliceblue;
 }
 
-.line-numbers-container, .input-text-container {
+.line-numbers-container, .line-text-container {
     display: flex;
     flex-flow: column;
 }
