@@ -42,7 +42,6 @@ div.text-container {
     max-height: 80vh;
     width: 100%;
     background-color: aliceblue;
-    scrollbar-width: thin;
 }
 
 .line-numbers-container, .input-text-container {

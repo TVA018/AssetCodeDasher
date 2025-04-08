@@ -36,7 +36,11 @@ class Line {
             this.HTML.text.value += linesToPaste[0];
             
             for(let offset = 0; offset < linesToPaste.length - 1; offset++){
-                lineList.insertLine(linesToPaste[offset + 1], this.lineNum + offset);
+                if(lineList.lines[this.lineNum + offset]){ // a line already exists
+                    lineList.lines[this.lineNum + offset].HTML.text.value = linesToPaste[offset + 1];
+                } else {
+                    lineList.insertLine(linesToPaste[offset + 1], this.lineNum + offset);
+                }
             }
 
             lineList.lines[this.lineNum + linesToPaste.length - 2].HTML.text.focus();
