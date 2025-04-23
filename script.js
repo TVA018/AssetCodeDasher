@@ -1,6 +1,8 @@
 const inputArea = document.getElementById("input");
 const outputArea = document.getElementById("output");
+const verifyButton = document.getElementById("verify-button");
 const formatButton = document.getElementById("format-button");
+const removeDashesButton = document.getElementById("remove-dashes-button");
 const clearButton = document.getElementById("clear-button");
 const statusMsg = document.getElementById("status");
 
@@ -13,19 +15,44 @@ const catchErrorsCheck = document.getElementById("error-catch-check");
 
 statusMsg.style.color = "transparent";
 
+function checkErrors(){
+    // Checks if there is a non-230 code
+    const inputs = inputLines.textArea.value.split("\n");
+
+    const badCodes = [];
+    
+    for(let index = 0; index < inputs.length; index++) {
+        const input = inputs[index];
+        const isBad = input.replace(removeWhiteSpace, "") != "" && (input.search(prefixCode) == -1);
+        const lineNumberLabel = inputLines.lineNumbers[index].HTML;
+
+        if(isBad){
+            lineNumberLabel.classList.add("error-line");
+            badCodes.push(index);
+        } else {
+            lineNumberLabel.classList.remove("error-line");
+        }
+    }
+
+    if(badCodes.length > 0){
+        alert("ERROR: Some codes in the input list (highlighted in red) are not valid 230 codes.");
+    }
+
+    return badCodes;
+}
+
 function addDashes(){
-    let invalidCodeLines = [];
+    // If is catching errors and there is a non-230-styled code
+    if(catchErrorsCheck.checked && checkErrors().length > 0){
+        return;
+    }
 
     const inputs = inputLines.textArea.value.split("\n");
+
     const outputs = [...inputs.keys()].map((lineNumber) => {
         const inputVal = inputs[lineNumber];
 
         if(inputVal.search(prefixCode) == -1){
-            //not a 230-style asset code
-            if(catchErrorsCheck.checked){
-                invalidCodeLines.push(lineNumber);
-            }
-
             return inputVal;
         }
 
@@ -35,20 +62,32 @@ function addDashes(){
         return outputVal;
     });
 
-    for(let i = 0; i < inputs.length; i++){
-        const lineNumberLabel = inputLines.lineNumbers[i].HTML;
-        
-        if(invalidCodeLines.includes(i)){
-            lineNumberLabel.classList.add("error-line");
-        } else {
-            lineNumberLabel.classList.remove("error-line");
-        }
-    }
+    statusMsg.classList.add("fading-out");
+    setTimeout(() => statusMsg.classList.remove("fading-out"), 2000);
+    outputLines.setText(outputs.join("\n"));
+    
+    navigator.clipboard.writeText(outputs.join("\n"));
+}
 
-    if(invalidCodeLines.length > 0){
-        alert("ERROR: Some codes in the input list (highlighted in red) are not valid 230 codes.");
+function removeDashes(){
+    // If is catching errors and there is a non-230-styled code
+    if(catchErrorsCheck.checked && checkErrors().length > 0){
         return;
     }
+
+    const inputs = inputLines.textArea.value.split("\n");
+
+    const outputs = [...inputs.keys()].map((lineNumber) => {
+        const inputVal = inputs[lineNumber];
+
+        if(inputVal.search(prefixCode) == -1){
+            return inputVal;
+        }
+
+        let outputVal = inputVal.replace(removeWhiteSpace, "");
+
+        return outputVal;
+    });
 
     statusMsg.classList.add("fading-out");
     setTimeout(() => statusMsg.classList.remove("fading-out"), 2000);
@@ -57,5 +96,7 @@ function addDashes(){
     navigator.clipboard.writeText(outputs.join("\n"));
 }
 
+verifyButton.onclick = checkErrors;
 formatButton.onclick = addDashes;
+removeDashesButton.onclick = removeDashes;
 clearButton.onclick = () => inputLines.clear();
