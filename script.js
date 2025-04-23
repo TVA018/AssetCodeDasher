@@ -96,7 +96,14 @@ function removeDashes(){
     navigator.clipboard.writeText(outputs.join("\n"));
 }
 
-verifyButton.onclick = checkErrors;
+verifyButton.onclick = () => {
+    const badLines = checkErrors();
+
+    if(badLines.length == 0){
+        alert("ALL CODES ARE VALID 230-STYLED CODES");
+    }
+}
+
 formatButton.onclick = addDashes;
 removeDashesButton.onclick = removeDashes;
 clearButton.onclick = () => inputLines.clear();
