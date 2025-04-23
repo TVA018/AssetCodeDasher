@@ -148,6 +148,10 @@ button {
     color: aliceblue;
 }
 
+.verify-button {
+    background-color: #3ac751;
+}
+
 .format-button {
     background-color: #365488;
 }
