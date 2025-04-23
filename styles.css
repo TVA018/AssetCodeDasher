@@ -94,7 +94,7 @@ div.text-container > textarea {
     min-width: 100%;
     max-width: 100%;
     height: auto;
-    overflow: auto;
+    overflow: hidden;
     box-sizing: border-box;
     border-width: 1px;
     padding: 0 0 0 5px;
@@ -146,6 +146,10 @@ button {
     height: 15%;
     font-size: 5vh;
     color: aliceblue;
+}
+
+.verify-button {
+    background-color: #3ac751;
 }
 
 .format-button {
