@@ -96,6 +96,39 @@ function removeDashes(){
     navigator.clipboard.writeText(outputs.join("\n"));
 }
 
+function removePrefixAndSuffix(){
+    let prefixLen;
+    let suffixLen;
+
+    do {
+        prefixLen = promt("Length of prefix:", 0);
+    } while (isNaN(prefixLen) && isNaN(parseInt(prefixLen)));
+
+    prefixLen = parseInt(prefixLen);
+
+    do {
+        suffixLen = promt("Length of suffix:", 0);
+    } while (isNaN(suffixLen) && isNaN(parseInt(suffixLen)));
+
+    suffixLen = parseInt(suffixLen);
+
+    const inputs = inputLines.textArea.value.split("\n");
+
+    const outputs = [...inputs.keys()].map((lineNumber) => {
+        const inputVal = inputs[lineNumber];
+
+        let outputVal = inputVal.slice(prefixLen, inputVal.length - suffixLen);
+
+        return outputVal;
+    });
+
+    statusMsg.classList.add("fading-out");
+    setTimeout(() => statusMsg.classList.remove("fading-out"), 2000);
+    outputLines.setText(outputs.join("\n"));
+    
+    navigator.clipboard.writeText(outputs.join("\n"));
+}
+
 verifyButton.onclick = () => {
     const badLines = checkErrors();
 
