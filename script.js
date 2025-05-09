@@ -3,8 +3,8 @@ const outputArea = document.getElementById("output");
 const verifyButton = document.getElementById("verify-button");
 const formatButton = document.getElementById("format-button");
 const removeDashesButton = document.getElementById("remove-dashes-button");
-const addPresuffixButton = document.getElementById("add-dashes-button");
-const removePresuffixButton = document.getElementById("remove-dashes-button");
+const addPresuffixButton = document.getElementById("add-presuffix-button");
+const removePresuffixButton = document.getElementById("remove-presuffix-button");
 const clearButton = document.getElementById("clear-button");
 const statusMsg = document.getElementById("status");
 
@@ -99,6 +99,7 @@ function removeDashes(){
 }
 
 function removePrefixAndSuffix(){
+    console.log("CLICKED");
     let prefixLen;
     let suffixLen;
 
