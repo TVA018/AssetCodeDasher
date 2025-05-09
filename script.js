@@ -3,6 +3,8 @@ const outputArea = document.getElementById("output");
 const verifyButton = document.getElementById("verify-button");
 const formatButton = document.getElementById("format-button");
 const removeDashesButton = document.getElementById("remove-dashes-button");
+const addPresuffixButton = document.getElementById("add-dashes-button");
+const removePresuffixButton = document.getElementById("remove-dashes-button");
 const clearButton = document.getElementById("clear-button");
 const statusMsg = document.getElementById("status");
 
@@ -139,4 +141,5 @@ verifyButton.onclick = () => {
 
 formatButton.onclick = addDashes;
 removeDashesButton.onclick = removeDashes;
+removePresuffixButton.onclick = removePrefixAndSuffix;
 clearButton.onclick = () => inputLines.clear();
