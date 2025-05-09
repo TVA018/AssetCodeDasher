@@ -104,13 +104,13 @@ function removePrefixAndSuffix(){
     let suffixLen;
 
     do {
-        prefixLen = promt("Length of prefix:", 0);
+        prefixLen = prompt("Length of prefix:", 0);
     } while (isNaN(prefixLen) && isNaN(parseInt(prefixLen)));
 
     prefixLen = parseInt(prefixLen);
 
     do {
-        suffixLen = promt("Length of suffix:", 0);
+        suffixLen = prompt("Length of suffix:", 0);
     } while (isNaN(suffixLen) && isNaN(parseInt(suffixLen)));
 
     suffixLen = parseInt(suffixLen);
