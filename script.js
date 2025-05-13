@@ -43,6 +43,14 @@ function checkErrors(){
     return badCodes;
 }
 
+function setOutput(text){
+    statusMsg.classList.add("fading-out");
+    setTimeout(() => statusMsg.classList.remove("fading-out"), 2000);
+    outputLines.setText(text);
+    
+    navigator.clipboard.writeText(text);
+}
+
 function addDashes(){
     // If is catching errors and there is a non-230-styled code
     if(catchErrorsCheck.checked && checkErrors().length > 0){
@@ -64,11 +72,7 @@ function addDashes(){
         return outputVal;
     });
 
-    statusMsg.classList.add("fading-out");
-    setTimeout(() => statusMsg.classList.remove("fading-out"), 2000);
-    outputLines.setText(outputs.join("\n"));
-    
-    navigator.clipboard.writeText(outputs.join("\n"));
+    setOutput(outputs.join("\n"));
 }
 
 function removeDashes(){
@@ -91,11 +95,25 @@ function removeDashes(){
         return outputVal;
     });
 
-    statusMsg.classList.add("fading-out");
-    setTimeout(() => statusMsg.classList.remove("fading-out"), 2000);
-    outputLines.setText(outputs.join("\n"));
-    
-    navigator.clipboard.writeText(outputs.join("\n"));
+    setOutput(outputs.join("\n"));
+}
+
+function addPrefixAndSuffix(){
+    console.log("CLICKED");
+    let prefix = prompt("Prefix (can be empty):");
+    let suffix = prompt("Suffix (can be empty):");
+
+    const inputs = inputLines.textArea.value.split("\n");
+
+    const outputs = [...inputs.keys()].map((lineNumber) => {
+        const inputVal = inputs[lineNumber];
+
+        let outputVal = prefix + inputVal + suffix;
+
+        return outputVal;
+    });
+
+    setOutput(outputs.join("\n"));
 }
 
 function removePrefixAndSuffix(){
@@ -125,11 +143,7 @@ function removePrefixAndSuffix(){
         return outputVal;
     });
 
-    statusMsg.classList.add("fading-out");
-    setTimeout(() => statusMsg.classList.remove("fading-out"), 2000);
-    outputLines.setText(outputs.join("\n"));
-    
-    navigator.clipboard.writeText(outputs.join("\n"));
+    setOutput(outputs.join("\n"));
 }
 
 verifyButton.onclick = () => {
@@ -142,5 +156,6 @@ verifyButton.onclick = () => {
 
 formatButton.onclick = addDashes;
 removeDashesButton.onclick = removeDashes;
+addPresuffixButton.onclick = addPrefixAndSuffix;
 removePresuffixButton.onclick = removePrefixAndSuffix;
 clearButton.onclick = () => inputLines.clear();
