@@ -15,8 +15,6 @@ const outputLines = new LineList(document.getElementById("output-lines-list"), t
 
 const catchErrorsCheck = document.getElementById("error-catch-check");
 
-new BarcodeManager(document.getElementById("camera"));
-
 statusMsg.style.color = "transparent";
 
 function checkErrors(){
